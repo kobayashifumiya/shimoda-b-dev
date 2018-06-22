@@ -99,5 +99,34 @@ function pulldown_day()
 	print '<option value="31">31</option>';
 	print '</select>';
 }
+function pulldown_syokuzai()
+{
+	print'<select name="syokuzai">';
+	print '<option value=" "> </option>';
+	print '<option value=" トマト">トマト</option>';
+	print '<option value=" ジャガイモ">ジャガイモ</option>';
+	print '<option value=" ニンジン">ニンジン</option>';
+	print '</select>';
+}
+
+function pulldown_santi()
+{
+	print'<select name="santi">';
+	print '<option value=" "> </option>';
+	print '<option value=" 北海道">北海道</option>';
+	print '<option value=" 千葉">千葉</option>';
+	print '<option value=" 熊本">熊本</option>';
+	print '</select>';
+}
+
+function pulldown_kakaku()
+{
+	print'<select name="kakaku">';
+	print '<option value=" "> </option>';
+	print '<option value=" 100">100円～199円</option>';
+	print '<option value=" 200">200円～299円</option>';
+	print '<option value=" 300">300円以上</option>';
+	print '</select>';
+}
 
 ?>
