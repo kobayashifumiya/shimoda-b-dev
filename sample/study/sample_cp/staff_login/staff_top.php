@@ -29,16 +29,9 @@ else
 <br />
 <a href="../product/pro_list.php">商品管理</a><br />
 <br />
-<a href="../order/order_input.php">注文番号入力</a><br />
-<br />
 <a href="../order/order_download.php">注文ダウンロード</a><br />
 <br />
 <a href="staff_logout.php">ログアウト</a><br />
-<br />
-<a href="mailpurotp.php">メール</a><br />
-<br />
-<a href="..\study\add.php">レビュー</a><br />
-
 
 </body>
 </html>
