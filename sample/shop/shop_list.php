@@ -25,6 +25,21 @@ else
 </head>
 <body>
 
+<?php require_once('../common/common.php'); ?>
+<form method="post" action="shop_search.php"> 
+食材
+<?php pulldown_syokuzai(); ?>
+産地
+<?php pulldown_santi(); ?>
+価格
+<?php pulldown_kakaku(); ?>
+<br /> 
+<input type="search" name="keyword" value=" "></p>
+<p><input type="submit" value="検索"></p>
+</form>
+
+
+
 <?php
 
 try
