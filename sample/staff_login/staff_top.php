@@ -35,7 +35,7 @@ else
 <br />
 <a href="staff_logout.php">ログアウト</a><br />
 <br />
-<a href="mailpurotp.php">メール</a><br />
+<a href="form.html">メール</a><br />
 <br />
 <a href="..\study\add.php">レビュー</a><br />
 

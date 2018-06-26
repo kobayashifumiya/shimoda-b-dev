@@ -6,7 +6,7 @@
         <title>ろくまる農園</title>
     </head>
     <body>
-    ④注文番号入力画面<br /><br />
+    注文番号入力画面<br /><br />
     管理者専用ページ<br /><br />
 
     <form method="post" action="order_disp.php">
