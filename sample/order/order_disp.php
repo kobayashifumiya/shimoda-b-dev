@@ -94,6 +94,8 @@ while(true)
       action="mailsend.php">
       
     <input type="submit" name="submit" value="メールを送信">
+    
+
 </form>
   <br />
  

@@ -33,7 +33,9 @@ $stmt->execute($data);
 
 $dbh=null;
 
-print $pro_name;
+// $pro_nameを印刷します。
+// $pro_scoreを印刷します。
+// $pro_commentを出力します
 print 'を追加しました。<br />';
 
 }

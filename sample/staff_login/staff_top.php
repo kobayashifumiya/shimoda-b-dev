@@ -38,6 +38,8 @@ else
 <a href="form.html">メール</a><br />
 <br />
 <a href="..\study\add.php">レビュー</a><br />
+<br />
+<a href="Sendver1  - コピー.php">レビュー2</a><br />
 
 
 </body>

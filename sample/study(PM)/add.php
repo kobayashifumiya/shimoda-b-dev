@@ -8,7 +8,7 @@
 
 レビュー番号<br />
 <br />
-<form method="post" action="check.php" enctype="multipart/form-data">
+<form method="post" action="study(PM)/check.php" enctype="multipart/form-data">
 ユーザ名を入力してください<br />
 <input type="text" name="name" style="width:100px"><br />
 評価点を入力してください<br />

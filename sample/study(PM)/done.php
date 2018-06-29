@@ -45,7 +45,7 @@ catch(Exception$e)
 
 ?>
 
-<a href="index.php">戻る</a>
+<a href="/index.php">戻る</a>
 
 </body>
 </html>
