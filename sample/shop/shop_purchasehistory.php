@@ -31,8 +31,8 @@ try
 
 //$dsn='mysql:dbname=shop;host=localhost;charset=utf8';
 /*$dsn='mysql:dbname=shop;host=localhost;charset=utf8';*/
-$dsn='mysql:dbname=shop;host=localhost;charset=utf8';
 
+$dsn='mysql:dbname=shop;host=localhost;charset=utf8';
 $user='root';
 $password='';
 $dbh=new PDO($dsn,$user,$password);
@@ -91,12 +91,16 @@ $a_quantity[]=$rec2['quantity'];
 
 //ソート
 arsort($a_date);
-//ポインタ取得
-$key=key($a_date);
-
-{
-	
+//データ数取得
+$rev_num=count($a_date);
+for ($i = 0; $i < $rev_num; $i++){
+	//ポインタ取得
 	$key=key($a_date);
+	//ポインタを進める（次のデータ表示のための準備）
+	next($a_date);
+	$j=$i+1;
+	
+	print $j.' ';
 	print '注文日時<br />';
 	print $a_date[$key].'<br />';
 	print '商品番号<br />';
@@ -112,6 +116,7 @@ $key=key($a_date);
 	print '<br />';
 }
 }
+
 catch (Exception $e)
 {
 	 print 'ただいま障害により大変ご迷惑をお掛けしております。';
