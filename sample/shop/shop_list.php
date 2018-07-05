@@ -1,4 +1,3 @@
-
 <?php
 session_start();
 session_regenerate_id(true);
@@ -52,20 +51,32 @@ try
 //検索したことがない場合
 	if(isset($_POST['search'])==false)
 	{
-//$dsn='mysql:dbname=shop;host=localhost;charset=utf8';
-/*$dsn='mysql:dbname=shop;host=localhost;charset=utf8';*/
+
+
 $dsn='mysql:dbname=ensyu;host=localhost;charset=utf8';
 $user='root';
 $password='';
 $dbh=new PDO($dsn,$user,$password);
 $dbh->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 
-$sql='SELECT code,name,price FROM mst_product WHERE 1';
+$sql='SELECT code,name,price,gazou FROM mst_product WHERE 1';
 $stmt=$dbh->prepare($sql);
 $stmt->execute();
 
+$rec=$stmt->fetch(PDO::FETCH_ASSOC);
+$pro_gazou_name=$rec['gazou'];
+
 $dbh=null;
 
+
+if($pro_gazou_name=='')
+{
+ $disp_gazou='';
+}
+else
+{
+ $disp_gazou='<img src="../product/gazou/'.$pro_gazou_name.'">';
+}
 
 
 while(true)
@@ -76,6 +87,7 @@ while(true)
 		break;
 	}
 	print '<a href="shop_product.php?procode='.$rec['code'].'">';
+	print $disp_gazou.'<br />'; 
 	print $rec['name'].'─';
 	print $rec['price'].'円';
 	print '</a>';
@@ -102,16 +114,28 @@ $password='';
 $dbh=new PDO($dsn,$user,$password);
 $dbh->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 
-$sql='SELECT code,name,price,syokuzai,santi,kakaku
+$sql='SELECT code,name,price,gazou,syokuzai,santi,kakaku
 FROM mst_product WHERE 1';
 
 
 $stmt=$dbh->prepare($sql);
 $stmt->execute();
 
+$rec=$stmt->fetch(PDO::FETCH_ASSOC);
+$pro_gazou_name=$rec['gazou'];
+
 $dbh=null;
 
 $_x=0;
+
+if($pro_gazou_name=='')
+{
+ $disp_gazou='';
+}
+else
+{
+ $disp_gazou='<img src="../product/gazou/'.$pro_gazou_name.'">';
+}
 
 
 
@@ -132,6 +156,7 @@ if($keyword==''){
 		&&(strpos($rec['kakaku'],$kakaku)!==false))
 		{
 		print '<a href="shop_product.php?procode='.$rec['code'].'">';
+		print $disp_gazou.'<br />'; 
 		print $rec['name'].'─';
 		print $rec['price'].'円';
 		print '</a>';
@@ -159,6 +184,7 @@ while(true)
 	&&(strpos($rec['name'],$keyword)!==false))
 	{
 	print '<a href="shop_product.php?procode='.$rec['code'].'">';
+	print $disp_gazou.'<br />'; 
 	print $rec['name'].'─';
 	print $rec['price'].'円';
 	print '</a>';
