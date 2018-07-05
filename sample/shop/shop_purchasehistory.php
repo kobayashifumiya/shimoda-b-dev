@@ -63,7 +63,10 @@ $rec3=$stmt3->fetch(PDO::FETCH_ASSOC);
 
 $dbh=null;
 
+print'<a href="shop_list.php">完了</a></br></br>';
+
 print '-----購入履歴一覧-----<br /><br />';
+
 //配列定義
 $a_date=array();
 $a_code_product=array();
