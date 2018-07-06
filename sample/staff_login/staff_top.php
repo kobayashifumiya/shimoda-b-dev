@@ -40,7 +40,8 @@ else
 <a href="..\study\add.php">レビュー</a><br />
 <br />
 <a href="Sendver1  - コピー.php">レビュー2</a><br />
-
+<br />
+<a href="../sample/staff_login/test_mail.php">メール送信</a><br />
 
 </body>
 </html>
