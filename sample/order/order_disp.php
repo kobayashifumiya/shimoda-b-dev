@@ -98,7 +98,7 @@ while(true)
     
     ?>
     <form method="POST"
-     action="mailsend.php">
+     action="http://localhost/test_mail.php">
           <input type="submit" name="submit" value="メールを送信">
 
 </form>
