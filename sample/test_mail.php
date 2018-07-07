@@ -18,7 +18,7 @@ echo '送信失敗';
     メール送信結果画面<br /><br />
     管理者専用ページ<br /><br />
     ユーザーが登録したメールアドレスにメールが送信されました。<br /><br />
-    <a href="http://localhost/shimoda-b-dev/sample/staff_login/staff_top.php">トップメニューへ</a><br />
+    <a href="http:\\localhost\shimoda-b-dev\sample\order\order_input.php">注文番号入力画面へ</a><br />
 
   </body>  
 </html>
