@@ -9,7 +9,7 @@
     メール送信結果画面<br /><br />
     管理者専用ページ<br /><br />
     ユーザーが登録したメールアドレスにメールが送信されました。<br /><br />
-    <a href="../staff_login/staff_top.php">トップメニューへ</a><br />
+    <a href="http://localhost/test_mail.php">トップメニューへ</a><br />
 
   </body>  
 </html>
