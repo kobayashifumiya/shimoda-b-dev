@@ -4,14 +4,16 @@
         <meta charset="UTF-8">
         <title>ろくまる農園</title>
 <?php
+
 if (
-    mb_send_mail('0114natume@gmail.com', 'TEST SUBJECT', 'ぽよん')
+   // mb_send_mail('0114natume@gmail.com', 'TEST SUBJECT', '配達が完了しました。')
     )
  {
 echo '送信完了';
 } else {
 echo '送信失敗';
 }
+
 ?>
     </head>
     <body>
