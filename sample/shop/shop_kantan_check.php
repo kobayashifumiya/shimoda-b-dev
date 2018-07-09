@@ -26,7 +26,7 @@ $password='';
 $dbh=new PDO($dsn,$user,$password);
 $dbh->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 
-$sql='SELECT name,email,postal1,postal2,address,tel FROM dat_member WHERE code=?';
+$sql='SELECT name,email,family_email,postal1,postal2,address,tel FROM dat_member WHERE code=?';
 $stmt=$dbh->prepare($sql);
 $data[]=$code;
 $stmt->execute($data);
@@ -36,6 +36,7 @@ $dbh=null;
 
 $onamae=$rec['name'];
 $email=$rec['email'];
+$family=$rec['family_email'];
 $postal1=$rec['postal1'];
 $postal2=$rec['postal2'];
 $address=$rec['address'];
@@ -47,6 +48,10 @@ print '<br /><br />';
 
 print 'メールアドレス<br />';
 print $email;
+print '<br /><br />';
+
+print '家族アドレス<br />';
+print $family;
 print '<br /><br />';
 
 print '郵便番号<br />';
@@ -66,6 +71,7 @@ print '<br /><br />';
 print '<form method="post" action="shop_kantan_done.php">';
 print '<input type="hidden" name="onamae" value="'.$onamae.'">';
 print '<input type="hidden" name="email" value="'.$email.'">';
+print '<input type="hidden" name="family" value="'.$family.'">';
 print '<input type="hidden" name="postal1" value="'.$postal1.'">';
 print '<input type="hidden" name="postal2" value="'.$postal2.'">';
 print '<input type="hidden" name="address" value="'.$address.'">';

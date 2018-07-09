@@ -14,6 +14,7 @@ $post=sanitize($_POST);
 
 $onamae=$post['onamae'];
 $email=$post['email'];
+$family=$post['family'];
 $postal1=$post['postal1'];
 $postal2=$post['postal2'];
 $address=$post['address'];
@@ -47,6 +48,18 @@ else
 {
 	print 'メールアドレス<br />';
 	print $email;
+	print '<br /><br />';
+}
+
+if(preg_match('/^[\w\-\.]+\@[\w\-\.]+\.([a-z]+)$/',$family)==0)
+{
+	print '家族アドレスを正確に入力してください。<br /><br />';
+	$okflg=false;
+}
+else
+{
+	print '家族アドレス<br />';
+	print $family;
 	print '<br /><br />';
 }
 
@@ -131,6 +144,7 @@ if($okflg==true)
 	print '<form method="post" action="shop_form_done.php">';
 	print '<input type="hidden" name="onamae" value="'.$onamae.'">';
 	print '<input type="hidden" name="email" value="'.$email.'">';
+	print '<input type="hidden" name="family" value="'.$family.'">';
 	print '<input type="hidden" name="postal1" value="'.$postal1.'">';
 	print '<input type="hidden" name="postal2" value="'.$postal2.'">';
 	print '<input type="hidden" name="address" value="'.$address.'">';

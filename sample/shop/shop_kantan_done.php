@@ -27,6 +27,7 @@ $post=sanitize($_POST);
 
 $onamae=$post['onamae'];
 $email=$post['email'];
+$family=$post['family'];
 $postal1=$post['postal1'];
 $postal2=$post['postal2'];
 $address=$post['address'];
@@ -34,7 +35,8 @@ $tel=$post['tel'];
 
 print $onamae.'様<br />';
 print 'ご注文ありがとうござました。<br />';
-print $email.'にメールを送りましたのでご確認ください。<br />';
+print $email.'と';
+print $family.'にメールを送りましたのでご確認ください。<br />';
 print '商品は以下の住所に発送させていただきます。<br />';
 print $postal1.'-'.$postal2.'<br />';
 print $address.'<br />';
@@ -103,13 +105,66 @@ $lastcode=$rec['LAST_INSERT_ID()'];
 
 for($i=0;$i<$max;$i++)
 {
-	$sql='INSERT INTO dat_sales_product (code_sales,code_product,price,quantity) VALUES (?,?,?,?)';
+	$sql='INSERT INTO dat_sales_product (code_sales,code_product,price,total_fee,quantity,ID,email,family_email,product_name) VALUES (?,?,?,?,?,?,?,?,?)';
 	$stmt=$dbh->prepare($sql);
 	$data=array();
 	$data[]=$lastcode;
 	$data[]=$cart[$i];
 	$data[]=$kakaku[$i];
+	$price=$kakaku[$i];
+	$suryo=$kazu[$i];
+	$shokei=$price*$suryo;
+	$data[]=$shokei;
 	$data[]=$kazu[$i];
+	$data[]=$lastmembercode;
+
+		$dsn='mysql:dbname=shop;host=localhost;charset=utf8';
+		$user='root';
+		$password='';
+		$dbh=new PDO($dsn,$user,$password);
+		$dbh->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+
+		$sql1='SELECT email,family_email,code FROM dat_member WHERE 1';
+		$stmt1=$dbh->prepare($sql1);
+		$stmt1->execute();
+
+		while(true)
+		{
+		$rec=$stmt1->fetch(PDO::FETCH_ASSOC);
+		if($rec==false)
+		{
+		break;
+		}
+		if($lastmembercode==$rec['code']){
+		$email=$rec['email'];
+		$family=$rec['family_email'];
+		}
+		}
+	$data[]=$email;
+	$data[]=$family;
+	
+	$dsn='mysql:dbname=shop;host=localhost;charset=utf8';
+	$user='root';
+	$password='';
+	$dbh=new PDO($dsn,$user,$password);
+	$dbh->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+
+	$sql2='SELECT code,name FROM mst_product WHERE 1';
+	$stmt2=$dbh->prepare($sql2);
+	$stmt2->execute();
+
+	while(true)
+	{
+	$rec=$stmt2->fetch(PDO::FETCH_ASSOC);
+	if($rec==false)
+	{
+	break;
+	}
+	if($cart[$i]==$rec['code']){
+	$name=$rec['name'];
+	}
+	}
+	$data[]=$name;
 	$stmt->execute($data);
 }
 
